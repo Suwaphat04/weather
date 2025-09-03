@@ -176,12 +176,26 @@ function HoursTable({ rows }) {
     </div>
   );
 }
+
+/* ---------------- Brand (โลโก้ขนาดเล็กใน Header) ---------------- */
+function Brand() {
+  return (
+    <div className="flex items-center gap-2">
+      {/* ⬇️ กำหนดขนาดโลโก้ที่นี่ */}
+      <CloudIcon className="w-8 h-8 text-sky-700" />
+      <span className="text-2xl sm:text-3xl font-bold text-sky-900">
+        Weather Now — Public Dashboard
+      </span>
+    </div>
+  );
+}
+
 function Header({ loc }) {
   return (
     <div className="relative overflow-hidden rounded-3xl border border-sky-200 bg-gradient-to-tr from-sky-50 via-sky-100 to-sky-200 p-6">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,.25),transparent_50%)]" />
       <div className="relative z-10 flex flex-wrap items-center gap-3">
-        <h1 className="text-2xl sm:text-3xl font-bold text-sky-900">Weather Now — Public Dashboard</h1>
+        <Brand />
         <div className="ml-auto flex flex-wrap gap-2">
           <Badge>📍 {loc.preset}</Badge>
           <Badge>🧭 {loc.latitude.toFixed(4)}, {loc.longitude.toFixed(4)}</Badge>
@@ -191,6 +205,7 @@ function Header({ loc }) {
     </div>
   );
 }
+
 function LayoutToggle({ value, onChange }) {
   const options = [
     { id: 'dashboard', label: 'Dashboard' },
